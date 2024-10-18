@@ -75,7 +75,11 @@
       .attr('height', height + margin.top + margin.bottom)
       .append('g')
       .attr('transform', `translate(${margin.left}, ${margin.top})`);
-  
+    
+    const tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);  
+
     // X axis
     const x = d3.scaleBand()
       .domain(data.map(d => d.name))
@@ -91,23 +95,54 @@
   
     // Y axis
     const y = d3.scaleLinear()
-      .domain([0, d3.max(data, d => d.population)])
-      .range([height, 0]);
-  
-    svg.append('g').call(d3.axisLeft(y));
+  .domain([0, d3.max(data, d => d.population)])
+  .range([height, 0]);
+
+const yAxis = d3.axisLeft(y)
+  .ticks(10) // Adjust the number of ticks as needed
+  .tickFormat(d => {
+    if (d >= 1e9) {
+      return `${(d / 1e9).toFixed(1)}B`; // Billions
+    } else if (d >= 1e6) {
+      return `${(d / 1e6).toFixed(1)}M`; // Millions
+    } else if (d >= 1e3) {
+      return `${(d / 1e3).toFixed(1)}K`; // Thousands
+    }
+    return d; // Fallback for numbers less than 1000
+  });
+
+svg.append('g')
+  .call(yAxis);
   
     // Bars
     svg.selectAll('.bar')
-      .data(data)
-      .enter()
-      .append('rect')
-      .attr('class', 'bar')
-      .attr('x', d => x(d.name))
-      .attr('y', d => y(d.population))
-      .attr('width', x.bandwidth())
-      .attr('height', d => height - y(d.population))
-      .attr('fill', '#69b3a2');
+  .data(data)
+  .enter()
+  .append('rect')
+  .attr('class', 'bar')
+  .attr('x', d => x(d.name))
+  .attr('y', d => y(d.population))
+  .attr('width', x.bandwidth())
+  .attr('height', d => height - y(d.population))
+  .attr('fill', '#69b3a2')
+  .on('mouseover', function(event, d) {
+    tooltip.transition()
+      .duration(200)
+      .style("opacity", .9);
+    
+    // Correctly separate the tooltip.html() and subsequent style() calls
+    tooltip.html(`Country: ${d.name}<br/>Population: ${d.population}`);
+    tooltip.style("left", (event.pageX + 5) + "px")
+           .style("top", (event.pageY - 28) + "px");
+  })
+  .on('mouseout', function(d) {
+    tooltip.transition()
+      .duration(500)
+      .style("opacity", 0);
+  });
+
   };
+  
   
   // Label for the dropdown button
   const dropdownLabel = computed(() => {

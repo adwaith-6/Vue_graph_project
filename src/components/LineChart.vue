@@ -1,19 +1,19 @@
 <template>
-    <div>
-        <!-- Date Range Input Fields -->
-         <h1>Line Chart for Daily Apple Stocks</h1>
+    <h1>Line Chart for Daily Apple Stocks</h1>
+    <div class="line-container">
+        <!-- Chart Container on the left -->
+        <div class="line-chart-container" ref="chart"></div>
+        
+        <!-- Date Range Input Fields on the right -->
         <div class="date-filters">
             <label for="start-date">Start Date:</label>
-            <input type="date" v-model="startDate" id="start-date" />
+            <input class="date-input" type="date" v-model="startDate" id="start-date" />
 
             <label for="end-date">End Date:</label>
-            <input type="date" v-model="endDate" id="end-date" />
+            <input class="date-input" type="date" v-model="endDate" id="end-date" />
 
-            <button @click="filterData">Filter</button>
+            <button class="filter-button" @click="filterData">Filter</button>
         </div>
-
-        <!-- Chart Container -->
-        <div ref="chart" style="width: 100%; height: 400px;"></div>
     </div>
 </template>
 
@@ -56,7 +56,7 @@ const filterData = () => {
 const renderChart = () => {
     const data = filteredData.value.length ? filteredData.value : allStockData.value;
     const margin = { top: 20, right: 30, bottom: 30, left: 40 };
-    const width = 810 - margin.left - margin.right;
+    const width = 900 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
     d3.select(chart.value).selectAll('*').remove();
@@ -165,7 +165,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<!-- <style scoped>
 svg {
     font-family: Arial, sans-serif;
     background: #f9f9f9;
@@ -184,4 +184,4 @@ svg {
     padding: 5px;
     border-radius: 5px;
 }
-</style>
+</style> -->

@@ -1,23 +1,30 @@
 <template>
-  <div>
-    <h1>Bar Chart for Population of the world</h1>
-    <div class="dropdown">
-      <button class="dropdown-btn" @click="toggleDropdown">{{ dropdownLabel }}</button>
-      <div v-if="isDropdownOpen" class="dropdown-content">
-        <label v-for="country in orderedCountries" :key="country">
-          <input
-            type="checkbox"
-            :value="country"
-            v-model="selectedCountries"
-            @change="updateChart"
-          />
-          {{ country }}
-        </label>
+  <h1>Bar Chart for Population of the world</h1>
+  <div class="bar-container">
+    <!-- Bar Chart on the left -->
+    <div ref="chart" class="bar-chart"></div>
+    
+    <!-- Dropdown on the right -->
+    <div class="dropdown-container">
+
+      <div class="dropdown">
+        <button class="dropdown-btn" @click="toggleDropdown">{{ dropdownLabel }}</button>
+        <div v-if="isDropdownOpen" class="dropdown-content">
+          <label class="dropdown-label" v-for="country in orderedCountries" :key="country">
+            <input
+              type="checkbox"
+              :value="country"
+              v-model="selectedCountries"
+              @change="updateChart"
+            />
+            {{ country }}
+          </label>
+        </div>
       </div>
     </div>
-    <div ref="chart"></div>
   </div>
 </template>
+
 
   
   
@@ -77,7 +84,7 @@ const updateChart = async () => {
 // Function to render chart
 const renderChart = (data) => {
   const margin = { top: 20, right: 30, bottom: 60, left: 50 };
-  const width = 800 - margin.left - margin.right;
+  const width = 900 - margin.left - margin.right;
   const height = 400 - margin.top - margin.bottom;
 
   const svg = d3.select(chart.value)
@@ -169,7 +176,7 @@ onMounted(async () => {
   
 
   
-  <style>
+  <!-- <style>
   .tooltip {
     position: absolute;
     text-align: center;
@@ -218,4 +225,4 @@ onMounted(async () => {
   margin-right: 10px; /* Space between checkbox and label */
 }
   </style>
-  
+   -->

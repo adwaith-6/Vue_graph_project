@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
-  background-color: #ffffff;
+  background-color: #e7faff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -35,6 +35,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #213547;
 }
 
 button {
@@ -82,7 +83,7 @@ button:focus-visible {
 
 nav {
   width: 100%;
-  background-color: #005a2d; /* bg-green-700 */
+  background-color: #001357; /* bg-green-700 */
   border-bottom: 1px solid #48bb78; /* border-green-500 */
   position: fixed; /* Stick the navbar to the top */
   top: 0;
@@ -163,18 +164,51 @@ nav {
 
 svg {
   font-family: Arial, sans-serif;
-  background: #95b3ff;
+  background: #bbe4ff;
   border: 1px solid #ccc;
 }
 
 .date-filters {
   margin-bottom: 20px;
-
-  input {
-      margin-right: 10px;
-  }
+  // width: 2rem;
 }
 
+.line-container {
+  display: flex;
+  justify-content: space-between; /* Spread content to left and right */
+  align-items: flex-start; /* Align items at the start */
+  width: 100%;
+  padding: 20px;
+}
+
+.line-chart-container {
+  width: 100%; /* Adjust the width of the chart as needed */
+  height: 400px;
+  margin-right: 10px;
+  margin-left: 10x; /* For illustration purposes */
+}
+
+.date-filters {
+  margin-right: 0px;
+  width: 75%; /* Adjust the width of the date-filters */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.date-filters label {
+  margin-top: 10px;
+}
+
+.date-input {
+  margin: 20px 10px;
+  padding: 5px;
+}
+
+.filter-button {
+  margin-left: 10px;
+  margin-top: 12px;
+}
 // .tooltip {
 //   position: absolute;
 //   visibility: hidden;
@@ -188,48 +222,63 @@ svg {
   text-align: center;
   padding: 8px;
   font: 12px sans-serif;
-  background: lightsteelblue;
+  background: rgb(255, 255, 255);
   border: 0;
   border-radius: 8px;
   pointer-events: none;
 }
 
+.bar-container {
+  display: flex;
+  justify-content: space-between; /* Spread content to left and right */
+  align-items: flex-start; /* Align items at the start */
+  width: 100%;
+  padding: 20px;
+}
+
+
+
+.dropdown-container {
+  width: 100%; /* Adjust dropdown container width */
+  margin-left: 0;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
+}
 
-  .dropdown-btn {
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: rgb(74, 30, 134);
-    cursor: pointer;
-  }
+.dropdown-btn {
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #575ee1;
+  cursor: pointer;
+}
 
-  .dropdown-content {
-    display: block;
-    position: absolute;
-    background-color: rgb(34, 54, 209);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    border: 1px solid #ccc;
-    z-index: 1;
-    min-width: 200px; /* Set a minimum width for the dropdown */
-    max-height: 300px; /* Limit the height */
-    overflow-y: auto; /* Add scroll if content exceeds max height */
-    padding: 0; /* Remove padding */
+.dropdown-content {
+  display: block;
+  position: absolute;
+  background-color: rgb(104, 127, 255);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  z-index: 1;
+  min-width: 200px; /* Set a minimum width for the dropdown */
+  max-height: 300px; /* Limit the height */
+  overflow-y: auto; /* Add scroll if content exceeds max height */
+  padding: 0; /* Remove padding */
+}
 
-    label {
-      display: flex; /* Use flexbox for alignment */
-      align-items: center; /* Center the checkbox and text vertically */
-      padding: 5px 10px; /* Reduce padding to align text and checkbox */
-      cursor: pointer;
-      box-sizing: border-box; /* Include padding in width */
-      white-space: nowrap; /* Prevent text from wrapping */
-      overflow: hidden; /* Hide overflow text */
-      text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+.dropdown-label {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center the checkbox and text vertically */
+  padding: 5px 10px; /* Reduce padding to align text and checkbox */
+  cursor: pointer;
+  box-sizing: border-box; /* Include padding in width */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+}
 
-      input[type="checkbox"] {
-        margin-right: 10px; /* Space between checkbox and label */
-      }
-    }
-  }
+input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and label */
 }

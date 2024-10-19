@@ -1,10 +1,7 @@
 <template>
     <h1>Line Chart for Daily Apple Stocks</h1>
     <div class="line-container">
-        <!-- Chart Container on the left -->
         <div class="line-chart-container" ref="chart"></div>
-        
-        <!-- Date Range Input Fields on the right -->
         <div class="date-filters">
             <label for="start-date">Start Date:</label>
             <input class="date-input" type="date" v-model="startDate" id="start-date" />
@@ -52,7 +49,6 @@ const filterData = () => {
     renderChart(); // Rerender the chart with the filtered data
 };
 
-// Render the D3 chart
 const renderChart = () => {
     const data = filteredData.value.length ? filteredData.value : allStockData.value;
     const margin = { top: 20, right: 30, bottom: 30, left: 40 };
@@ -154,8 +150,6 @@ const renderChart = () => {
             .attr("cy", d => new_yScale(d.close));
     });
 
-
-    // Apply zoom behavior
     d3.select(chart.value).select('svg').call(zoomBehavior);
 };
 
@@ -166,24 +160,3 @@ onMounted(() => {
     renderChart();
 });
 </script>
-
-<!-- <style scoped>
-svg {
-    font-family: Arial, sans-serif;
-    background: #f9f9f9;
-    border: 1px solid #ccc;
-}
-.date-filters {
-    margin-bottom: 20px;
-}
-.date-filters input {
-    margin-right: 10px;
-}
-.tooltip {
-    position: absolute;
-    visibility: hidden;
-    background-color: lightgrey;
-    padding: 5px;
-    border-radius: 5px;
-}
-</style> -->

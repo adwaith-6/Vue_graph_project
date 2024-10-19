@@ -1,12 +1,8 @@
 <template>
   <h1>Bar Chart for Population of the world</h1>
   <div class="bar-container">
-    <!-- Bar Chart on the left -->
     <div ref="chart" class="bar-chart"></div>
-    
-    <!-- Dropdown on the right -->
     <div class="dropdown-container">
-
       <div class="dropdown">
         <label>Select Countries:</label>
         <button class="dropdown-btn" @click="toggleDropdown">{{ dropdownLabel }}</button>
@@ -165,7 +161,6 @@ const dropdownLabel = computed(() => {
   return selectedCountries.value.length ? `${selectedCountries.value.length} Selected` : "Select Countries";
 });
 
-// Chart reference
 const chart = ref(null);
 
 // Initial render
@@ -173,57 +168,3 @@ onMounted(async () => {
   updateChart();  // Render the initial chart with default selected countries
 });
 </script>
-
-  
-
-  
-  <!-- <style>
-  .tooltip {
-    position: absolute;
-    text-align: center;
-    padding: 8px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
-  }
-  .dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-btn {
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: rgb(74, 30, 134);
-  cursor: pointer;
-}
-.dropdown-content {
-  display: block;
-  position: absolute;
-  background-color: rgb(34, 54, 209);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  border: 1px solid #ccc;
-  z-index: 1;
-  min-width: 200px; /* Set a minimum width for the dropdown */
-  max-height: 300px; /* Limit the height */
-  overflow-y: auto; /* Add scroll if content exceeds max height */
-  padding: 0; /* Remove padding */
-}
-
-.dropdown-content label {
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center the checkbox and text vertically */
-  padding: 5px 10px; /* Reduce padding to align text and checkbox */
-  cursor: pointer;
-  box-sizing: border-box; /* Include padding in width */
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflow text */
-  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
-}
-
-.dropdown-content input[type="checkbox"] {
-  margin-right: 10px; /* Space between checkbox and label */
-}
-  </style>
-   -->

@@ -1,6 +1,7 @@
 <template>
     <div>
         <!-- Date Range Input Fields -->
+         <h1>Line Chart for Daily Apple Stocks</h1>
         <div class="date-filters">
             <label for="start-date">Start Date:</label>
             <input type="date" v-model="startDate" id="start-date" />

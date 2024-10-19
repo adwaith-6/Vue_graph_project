@@ -1,0 +1,235 @@
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #575ee1;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  background-color: #424adc;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+nav {
+  width: 100%;
+  background-color: #005a2d; /* bg-green-700 */
+  border-bottom: 1px solid #48bb78; /* border-green-500 */
+  position: fixed; /* Stick the navbar to the top */
+  top: 0;
+  left: 0;
+  right: 0; 
+  
+  .container {
+    max-width: 1280px; /* max-w-7xl */
+    margin: 0 auto;
+    padding: 0 16px; /* px-2 */
+    
+    @media(min-width: 640px) {
+      padding: 0 24px; /* sm:px-6 */
+    }
+
+    @media(min-width: 1024px) {
+      padding: 0 32px; /* lg:px-8 */
+    }
+  }
+
+  .nav-items {
+    display: flex;
+    height: 5rem; /* h-20 */
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    @media(min-width: 768px) {
+      justify-content: flex-start; /* md:justify-start */
+    }
+
+    img {
+      height: 2.5rem; /* h-10 */
+      width: auto;
+    }
+
+    .logo-text {
+      display: none;
+
+      @media(min-width: 768px) {
+        display: block; /* md:block */
+        color: white;
+        font-size: 1.5rem; /* text-2xl */
+        font-weight: bold;
+        margin-left: 0.5rem; /* ml-2 */
+      }
+    }
+  }
+
+  .nav-links {
+    margin-left: auto;
+
+    a {
+      color: white;
+      background-color: #22543d; /* bg-green-900 */
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.375rem; /* rounded-md */
+      text-decoration: none;
+
+      &:hover {
+        background-color: #1a202c; /* hover:bg-gray-900 */
+      }
+
+      & + a {
+        margin-left: 0.5rem; /* space-x-2 */
+      }
+    }
+  }
+}
+
+
+
+svg {
+  font-family: Arial, sans-serif;
+  background: #95b3ff;
+  border: 1px solid #ccc;
+}
+
+.date-filters {
+  margin-bottom: 20px;
+
+  input {
+      margin-right: 10px;
+  }
+}
+
+// .tooltip {
+//   position: absolute;
+//   visibility: hidden;
+//   background-color: lightgrey;
+//   padding: 5px;
+//   border-radius: 5px;
+// }
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  .dropdown-btn {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: rgb(74, 30, 134);
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: block;
+    position: absolute;
+    background-color: rgb(34, 54, 209);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    z-index: 1;
+    min-width: 200px; /* Set a minimum width for the dropdown */
+    max-height: 300px; /* Limit the height */
+    overflow-y: auto; /* Add scroll if content exceeds max height */
+    padding: 0; /* Remove padding */
+
+    label {
+      display: flex; /* Use flexbox for alignment */
+      align-items: center; /* Center the checkbox and text vertically */
+      padding: 5px 10px; /* Reduce padding to align text and checkbox */
+      cursor: pointer;
+      box-sizing: border-box; /* Include padding in width */
+      white-space: nowrap; /* Prevent text from wrapping */
+      overflow: hidden; /* Hide overflow text */
+      text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+
+      input[type="checkbox"] {
+        margin-right: 10px; /* Space between checkbox and label */
+      }
+    }
+  }
+}

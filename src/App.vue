@@ -1,27 +1,16 @@
-
-
 <template>
   <div>
-    <LineChart :data="filteredData" />
+    <NavBar />
+    <LineChart />
     <BarChart />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import LineChart from './components/LineChart.vue';
 import BarChart from './components/BarChart.vue';
+import NavBar from './components/NavBar.vue';
 
-const selectedFilter = ref('all');
-const data = ref([
-  // Mock data
-]);
-
-const filteredData = ref([...data.value]);
-
-const filterData = () => {
-  // Add logic to filter data based on selectedFilter
-};
 </script>
 
 <style scoped lang="scss">
@@ -29,7 +18,7 @@ const filterData = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 5rem;
 }
 
 select {

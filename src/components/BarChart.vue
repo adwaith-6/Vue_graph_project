@@ -1,5 +1,6 @@
 <template>
     <div>
+      <h1>Bar Chart for Population of the world</h1>
       <div class="dropdown">
         <button class="dropdown-btn" @click="toggleDropdown">{{ dropdownLabel }}</button>
         <div v-if="isDropdownOpen" class="dropdown-content">

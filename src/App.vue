@@ -2,11 +2,6 @@
 
 <template>
   <div>
-    <select v-model="selectedFilter" @change="filterData">
-      <option value="all">All</option>
-      <option value="lastMonth">Last Month</option>
-      <option value="lastWeek">Last Week</option>
-    </select>
     <LineChart :data="filteredData" />
     <BarChart />
   </div>

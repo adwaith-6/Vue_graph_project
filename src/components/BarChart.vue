@@ -8,6 +8,7 @@
     <div class="dropdown-container">
 
       <div class="dropdown">
+        <label>Select Countries:</label>
         <button class="dropdown-btn" @click="toggleDropdown">{{ dropdownLabel }}</button>
         <div v-if="isDropdownOpen" class="dropdown-content">
           <label class="dropdown-label" v-for="country in orderedCountries" :key="country">
@@ -141,7 +142,7 @@ const renderChart = (data) => {
   })
   .attr('width', x.bandwidth())
   .attr('height', d => Math.max(5, height - y(d.population)))  // Minimum height for visibility
-  .attr('fill', '#69b3a2')
+  .attr('fill', '#091057')
   .on('mouseover', function(event, d) {
     tooltip.transition()
       .duration(200)

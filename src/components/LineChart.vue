@@ -110,16 +110,18 @@ const renderChart = () => {
     const tooltip = d3.select(chart.value)
         .append('div')
         .style('position', 'absolute')
+        .style('text-align', 'center')
         .style('visibility', 'hidden')
-        .style('background', 'lightsteelblue')
-        .style('padding', '5px')
-        .style('border-radius', '3px');
+        .style('background', 'rgb(255, 255, 255)')
+        .style('padding', '8px')
+        .style('border', '0')
+        .style('border-radius', '8px');
 
     chartArea.selectAll("circle")
         .data(data)
         .enter()
         .append("circle")
-        .attr("r", 2)
+        .attr("r", 1.5)
         .attr("cx", d => x(d.date))
         .attr("cy", d => y(d.close))
         .attr("fill", "blue")
